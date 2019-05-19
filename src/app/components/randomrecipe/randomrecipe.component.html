@@ -1,0 +1,66 @@
+<div>
+  <div>
+    <div>
+      <nav class="nav_menu">
+        <div class="nav_menu_home">
+          <p><a href="">rad-recipe</a></p>
+        </div>
+        <div class="nav_menulinks">
+          <ul class="nav_menulinks_links">
+            <li><a href="">demo</a></li>
+            <li><a href="">demo</a></li>
+            <a href="/random" (click)="randomRecipe()"><li>random recipe</li></a>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="randomise_recipe">
+      <button (click)="getRandomRecipe()">click to get a random recipe</button>
+    </div>
+    <div>
+      <div class="recipe_area">
+        <div class="recipe_area_details">
+            <div class="recipe_area_img" *ngFor="let random of newRandomRecipe">
+                <img src="{{random.strMealThumb}}" alt="">
+              </div>
+              <div class="recipe_area_header" *ngFor="let random of newRandomRecipe">
+                  <span>
+                    <h3>
+                        {{random.strMeal}}
+                    </h3>
+                  </span>
+                  <span>
+                    <small>
+                      {{random.strArea}}
+                    </small>
+                  </span>
+                </div>
+        </div>
+        <div class="recipe_area_content">
+            <div class="recipe_area_content_ing" *ngFor="let random of newRandomRecipe">
+              <h4>Ingredients(quantity)</h4>
+                <ul>
+                  <li *ngFor="let ing of ingredients | keyvalue">{{ing.key}} ({{ing.value}})</li>
+                </ul>
+              </div>
+              <div class="recipe_area_content_inst" *ngFor="let random of newRandomRecipe">
+                <h4>Instructions</h4>
+                <span>
+                    {{random.strInstructions}}
+                </span>
+              </div>
+        </div>
+        <div class="recipe_area_video" *ngFor="let random of newRandomRecipe">
+          <div class="recipe_area_video_watch" *ngIf="random.strYoutube.length > 0">
+            <span>
+                Watch video
+            </span>
+          </div>
+            <div class="recipe_area_video_youtube" *ngIf="random.strYoutube.length > 0">
+                <iframe width="350" height="315" [src]='safeURL' frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
