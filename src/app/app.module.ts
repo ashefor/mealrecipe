@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipesService } from './services/recipes.service';
 import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -15,7 +16,8 @@ import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.co
     AppComponent,
     HomeComponent,
     routeComponents,
-    RandomrecipeComponent
+    RandomrecipeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,7 @@
             <div class="recipe_area_content_ing" *ngFor="let random of newRandomRecipe">
               <h4>Ingredients(quantity)</h4>
                 <ul>
-                  <li *ngFor="let ing of ingredients | keyvalue">{{ing.key}} ({{ing.value? ing.value: 'none'}})</li>
+                  <li *ngFor="let ing of newObj | keyvalue">{{ing.key}} ({{ing.value? ing.value: 'none'}})</li>
                 </ul>
               </div>
               <div class="recipe_area_content_inst" *ngFor="let random of newRandomRecipe">

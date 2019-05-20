@@ -17,4 +17,7 @@ export class RecipesService {
   listAllCategories(){
     return this.http.get(`${this.baseURL}list.php?c=list`)
   }
+  searchRecipeDB(searchItem){
+    return this.http.get(`${this.baseURL}search.php?s=${searchItem}`)
+  }
 }

@@ -11,8 +11,25 @@
 .nav_menu{
     display: flex;
 }
+.nav_menu_search{
+    margin: auto;
+}
+.nav_menu_search span{
+   padding: 50px;
+}
+.nav_menu_search_input{
+    padding: 20px;
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+    font-size: 20px;
+ }
+ .nav_menu_search_input::placeholder{
+    font-size: 20px;
+ }
 .nav_menulinks{
     margin-left: auto;
+    display: flex
 }
 .nav_menulinks_links{
     display: inline-flex;
@@ -21,6 +38,10 @@
     list-style: none;
     padding: 20px;
     margin-right: 25px;
+}
+.nav_menulinks_links li input{
+    // padding: 10px;
+    vertical-align: middle
 }
 .nav_menulinks_links li a{
     text-decoration: none;
