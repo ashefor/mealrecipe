@@ -43,12 +43,16 @@ export class RandomrecipeComponent implements OnInit {
       let obj = this.newRandomRecipe[0]; // yu=ou should recognise your own function from here
       for(let ing in obj){
         if(ing.includes('strIngredient')){
-          if(obj[ing].length > 0){
-            this.ingArray.push(obj[ing])
+          if(obj[ing] !== null){
+            if(obj[ing].length > 0){
+              this.ingArray.push(obj[ing])
+            }
           }
         }else if(ing.includes('strMeasure')){ //till here, I edited it and got the measurement array
-            if(obj[ing].length>0){
-              this.msmArray.push(obj[ing])
+            if(obj[ing] !== null){
+              if(obj[ing].length>0){
+                this.msmArray.push(obj[ing])
+              }
             }
         }
       }
