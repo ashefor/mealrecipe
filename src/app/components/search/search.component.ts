@@ -64,16 +64,8 @@ export class SearchComponent implements OnInit {
             }else if(pro.includes('strMeasure')){
               if(obj[pro] !== null){
                 if(obj[pro].length>0){
-                  // console.log(this.result)
                   this.msmB[obj.idMeal].push(obj[pro])
-                  // console.log(this.result)
-                  // console.log(this.result.measurements[idMeal])
-                  // let this.msmB[obj.idMeal]
-                  // console.log(this.msmB[obj.idMeal])
-                  // let gaw = Object.values(this.result)
-                  // console.log(this.result.measurements[obj.idMeal])
                   this.arraysha = this.result.measurements[obj.idMeal]
-                  // console.log(this.arraysha[8])
                   
                 }
               }
