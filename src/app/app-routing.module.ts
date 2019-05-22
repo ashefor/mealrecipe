@@ -7,7 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'random', component: RandomrecipeComponent},
-  {path: 'search', component: SearchComponent}
+  {path: 'search', component: SearchComponent, pathMatch: 'prefix'}
 ];
 
 @NgModule({
