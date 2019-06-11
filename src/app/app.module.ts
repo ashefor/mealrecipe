@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipesService } from './services/recipes.service';
 import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.component';
 import { SearchComponent } from './components/search/search.component';
+import { RecipeComponent } from './components/recipe/recipe.component';
 
 
 
@@ -17,7 +18,8 @@ import { SearchComponent } from './components/search/search.component';
     HomeComponent,
     routeComponents,
     RandomrecipeComponent,
-    SearchComponent
+    SearchComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,

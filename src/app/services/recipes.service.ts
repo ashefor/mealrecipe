@@ -20,4 +20,7 @@ export class RecipesService {
   searchRecipeDB(searchItem){
     return this.http.get(`${this.baseURL}search.php?s=${searchItem}`)
   }
+  lookup(params){
+    return this.http.get(`${this.baseURL}lookup.php?i=${params}`)
+  }
 }

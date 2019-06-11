@@ -32,31 +32,55 @@
 
         <div>
           <div class="search_area">
-            <div *ngFor="let search of searchedData" class="search_area_results">
+            <div *ngFor="let search of searchedData; let i = index" class="search_area_results">
               <div class="search_area_details">
                 <div class="search_area_img">
                   <img src="{{search.strMealThumb}}" alt="">
                 </div>
                 <div class="search_area_header">
-                  <span>
-                    <h3>
-                      {{search.strMeal}}
-                    </h3>
-                  </span>
-                  <span>
-                    <small>
-                      {{search.strArea}}
-                    </small>
-                  </span>
+                  
+                    <div class="search_area_header_sub_info_area">
+                        <small>
+                          {{search.strArea}}
+                        </small>
+                      </div>
+                  <div class="search_area_header_recipe_title">
+                    <h4>
+                      <a routerLink="/recipe/{{search.idMeal}}">{{search.strMeal}}</a>
+                    </h4>
+                  </div>
+                  <div class="search_area_header_sub_info">
+                    <div class="search_area_header_sub_info_cat">
+                      <small>
+                        {{search.strCategory}}
+                      </small>
+                    </div>
+                    <div>
+                      <button>Add to favorites</button>
+                    </div>
+                  </div>
+                  <div class="search_area_header_read_more">
+                    <a routerLink="/recipe/{{search.idMeal}}"><span>Show Recipe</span></a>
+                  </div>
                 </div>
               </div>
-              <div class="search_area_content">
+              <!-- <div class="search_area_content">
                 <div class="search_area_content_ing">
-                  <h4>Ingredients(quantity)</h4>
-                  <ul>
-                    <!-- <li *ngFor="let ing of newObj | keyvalue">{{ing.key}} ({{ing.value? ing.value: 'none'}})</li> -->
-                    <!-- <li *ngFor="let ing of arraysha">{{ing}} </li> -->
-                  </ul>
+                  <div >
+                    <h2>Ingredients</h2>
+                    <p *ngFor="let ingre of ingArray[i]">
+                        {{ingre}}
+                    </p>
+                  </div>
+                  <div> 
+                    
+                  </div>
+                  <div >
+                      <h2>Ingredients</h2>
+                      <p *ngFor="let ingre of msmArray[i]">
+                          ({{ingre}})
+                      </p>
+                    </div>
                 </div>
                 <div class="search_area_content_inst">
                   <h4>Instructions</h4>
@@ -64,17 +88,17 @@
                     {{search.strInstructions}}
                   </span>
                 </div>
-              </div>
-              <div class="search_area_video">
+              </div> -->
+              <!-- <div class="search_area_video">
                 <div class="search_area_video_watch" *ngIf="search.strYoutube.length > 0">
                   <span>
                     Watch video
                   </span>
                 </div>
-                <!-- <div class="search_area_video_youtube" *ngIf="search.strYoutube.length > 0">
+                <div class="search_area_video_youtube" *ngIf="search.strYoutube.length > 0">
                   <iframe width="350" height="315" [src]='safeURL' frameborder="0" allowfullscreen></iframe>
-                </div> -->
-              </div>
+                </div>
+              </div> -->
             </div>
           </div>
         </div>

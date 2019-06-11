@@ -1,0 +1,75 @@
+<div>
+  <div>
+    <div>
+      <nav class="nav_menu">
+        <div class="nav_menu_home">
+          <p><a href="">rad-recipe</a></p>
+        </div>
+        <div class="nav_menulinks">
+          <ul class="nav_menulinks_links">
+            <li><a href="">demo</a></li>
+            <li><a href="">demo</a></li>
+            <a href="/random">
+              <li>random recipe</li>
+            </a>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div>
+      <div class="recipe_area">
+        <div class="recipe_area_details">
+          <div class="recipe_area_img" *ngFor="let random of newRandomRecipe">
+            <img src="{{random.strMealThumb}}" alt="">
+          </div>
+          <div class="recipe_area_header" *ngFor="let random of newRandomRecipe">
+              <span>
+                  <small>
+                    {{random.strArea}}
+                  </small>
+                </span>
+              <h1>
+                {{random.strMeal}}
+              </h1>
+              <div class="search_area_header_sub_info">
+                  <div class="search_area_header_sub_info_cat">
+                    <small>
+                      {{search.strCategory}}
+                    </small>
+                  </div>
+                  <div>
+                    <button>Add to favorites</button>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <div class="recipe_area_content">
+          <div class="recipe_area_content_ing" *ngFor="let random of newRandomRecipe">
+              <h4>Ingredients(quantity)</h4>
+              <ul>
+                <li *ngFor="let ing of newObj | keyvalue">{{ing.key}}&nbsp; <span>
+                    ({{ing.value? ing.value: 'none'}})
+                </span></li>
+              </ul>
+            </div>
+          <div class="recipe_area_content_inst" *ngFor="let random of newRandomRecipe">
+            <h4>Instructions</h4>
+            <span>
+              {{random.strInstructions}}
+            </span>
+          </div>
+        </div>
+        <div class="recipe_area_video" *ngFor="let random of newRandomRecipe">
+          <div class="recipe_area_video_watch" *ngIf="random.strYoutube.length > 0">
+            <span>
+              Watch video
+            </span>
+          </div>
+          <div class="recipe_area_video_youtube" *ngIf="random.strYoutube.length > 0">
+            <iframe width="350" height="315" [src]='safeURL' frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
