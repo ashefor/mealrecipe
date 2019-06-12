@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'random', component: RandomrecipeComponent},
   {path: 'recipe/:id', component: RecipeComponent},
-  {path: 'search', component: SearchComponent, pathMatch: 'prefix'}
+  {path: 'search', component: SearchComponent, pathMatch: 'prefix'},
 ];
 
 @NgModule({

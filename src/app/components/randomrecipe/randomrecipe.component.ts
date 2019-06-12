@@ -14,29 +14,36 @@ export class RandomrecipeComponent implements OnInit {
   msmArray = [];
   various = [];
   ingredients: { [key: string]: string } = {}
-  newObj: { [key: string]: string } = {}
+  newObj: { [key: string]: string } = {};
+  noOfIngredients;
   i;
   getIngredients: any;
   public safeURL: SafeResourceUrl;
-  public radLink: string
+  showLoader = true;
+  public radLink: string;
+  addTo = true;
+  removeFrom = false;
   constructor(private service: RecipesService, private router: Router, private sanitizer: DomSanitizer) { }//these are all injected dependencies
 
   ngOnInit() {
-    //this part of the file is used to handle whatever requests or function whenever a page has successfully loaded or refresh.
-    // it was my idea to store data in session storage so that on refresh of browser the user gets his/her last random recipe request
-    //this data will remain until a new api request is made in which it replaces the previous one
-
     this.newRandomRecipe = JSON.parse(sessionStorage.getItem('data')) //getting the stored api data array from storage
     this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(sessionStorage.getItem('youtube')) //getting the sanitized URL
+    this.noOfIngredients = sessionStorage.getItem('noOfIngre')
     this.newObj = JSON.parse(sessionStorage.getItem('ingredients'))// getting the ingredients object from storage
-
+    if(this.newRandomRecipe.length > 0){
+      this.showLoader = false;
+    }
   }
 
   getRandomRecipe() {
+    this.showLoader = true;
     this.ingArray.length = 0;
     this.msmArray.length = 0;
     this.service.getRandomRecipe().subscribe((res: any) => {
-      this.newRandomRecipe = res.meals; //set data from the api call into an empty array
+      if(res){
+        console.log(res)
+        this.showLoader = false;
+        this.newRandomRecipe = res.meals; //set data from the api call into an empty array
       sessionStorage.setItem('data', JSON.stringify(res.meals)) //storing that data in sessionstorage
       this.radLink = res.meals[0].strYoutube; // used to get the youtube link so it can be sanitized and used
       const str = this.radLink.replace('watch?v=', 'embed/'); //replacing watch with embed so as to properly embed the youtube video or else error
@@ -59,13 +66,21 @@ export class RandomrecipeComponent implements OnInit {
           }
         }
       }
+      }
       let o = {}
       for (this.i = 0; this.i < this.ingArray.length; this.i++) {
         o[this.ingArray[this.i]] = this.msmArray[this.i]
         this.newObj = o;
+        this.noOfIngredients = Object.keys(this.newObj).length
+        sessionStorage.setItem('noOfIngre', this.noOfIngredients)
         sessionStorage.setItem('ingredients', JSON.stringify(this.newObj))
       }
     })
   }
 
+  addToFav() {
+    // alert('clicked')
+    this.addTo = !this.addTo;
+    this.removeFrom = !this.removeFrom
+  }
 }
