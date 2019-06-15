@@ -24,12 +24,8 @@
     <div>
       <div class="search_results">
         <div *ngIf="nothingFound" class="search_results_nothing">
-          <h4>{{s? s: ''}} produced no results</h4>
+          <h4>You've not added any favorites yet</h4>
         </div>
-        <div *ngIf="itemsFound" class="search_results_itemsfound">
-          <h4>found <span>{{searchresults? searchresults: zero}}</span> recipe(s) for {{s}}</h4>
-        </div>
-
         <div>
           <div class="search_area">
             <div *ngFor="let search of meals; let i = index" class="search_area_results">

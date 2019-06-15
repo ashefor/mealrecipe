@@ -19,6 +19,7 @@ export class FavoritesComponent implements OnInit {
   newObj: { [key: string]: string } = {};
   mealID;
   showmore = false;
+  nothingFound = false;
   constructor(private service: RecipesService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
@@ -27,15 +28,14 @@ export class FavoritesComponent implements OnInit {
     const newarray = new Set(this.favMeals)
     console.log(this.favMeals)
     const fav = Array.from(newarray)
-    // console.log(fav)
-    // console.log(fav.length)
+    if(fav.length < 1){
+      this.nothingFound = true;
+    }
     for (let index of fav) {
       this.service.lookup(index).subscribe((res: any) => {
         this.meals.push(res.meals[0])
         // console.log(this.meals)
         let allObj = res.meals[0];
-        console.log(allObj)
-        console.log(this.mealID)
         const youTubeLink = allObj.strYoutube
         const cleanLink = youTubeLink.replace('watch?v=', 'embed/')
         this.allcleanLinks.push(cleanLink)
