@@ -9,6 +9,7 @@ import { RecipesService } from './services/recipes.service';
 import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.component';
 import { SearchComponent } from './components/search/search.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 
@@ -19,7 +20,8 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     routeComponents,
     RandomrecipeComponent,
     SearchComponent,
-    RecipeComponent
+    RecipeComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
