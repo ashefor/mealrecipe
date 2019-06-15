@@ -16,7 +16,7 @@ export class RecipeComponent implements OnInit {
   noOfIngredients: number;
   addTo = true;
   mealID;
-  favMeals = [];
+  public favMeals = [];
   newmeals = []
   removeFrom = false;
   public safeUrl: SafeResourceUrl;
@@ -24,22 +24,24 @@ export class RecipeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: RecipesService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    // console.log(localStorage.getItem('mealId'))
-    // this.favMeals = JSON.parse(localStorage.getItem('mealId'))
+    const retrrievedData = localStorage.getItem('mealIds')
+    this.favMeals = JSON.parse(retrrievedData)
+    
     console.log(this.favMeals)
     this.route.params.subscribe(
       (params: Params) => {
-        console.log(params)
         this.service.lookup(params.id).subscribe((res: any) => {
           if(res){
-            // console.log(res.meals[0].idMeal)
             this.showLoader = false;
           this.singleRecipe = res.meals;
           this.mealID = res.meals[0].idMeal;
+          if(this.favMeals.includes(this.mealID)){
+            this.addTo = false
+            this.removeFrom = true
+          }
           let obj = this.singleRecipe[0]; 
           const youTubeLink = obj.strYoutube
           const cleanLink = youTubeLink.replace('watch?v=', 'embed/')
-          console.log(cleanLink)
           this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cleanLink)
           for (let ing in obj) {
             if (ing.includes('strIngredient')) {
@@ -61,27 +63,31 @@ export class RecipeComponent implements OnInit {
           for (let i = 0; i < this.ingArray.length; i++) {
             o[this.ingArray[i]] = this.msmArray[i]
             this.newObj = o;
-            this.noOfIngredients = Object.keys(this.newObj).length
-            sessionStorage.setItem('ingredients', JSON.stringify(this.newObj))
+            this.noOfIngredients = Object.keys(this.newObj).length;
           }
         })
       }
     )
   }
-  lookup(params) {
-    this.service.lookup(params.id).subscribe((res: any) => {
-      console.log(res)
-    })
-  }
 
   addToFav() {
-    // alert(this.singleRecipe.idMeal)
-    // console.log(this.mealID)
     this.favMeals.push(this.mealID)
     const newarray = new Set(this.favMeals)
-    console.log(newarray)
-    localStorage.setItem('mealId', JSON.stringify(this.favMeals))
-    // this.addTo = !this.addTo;
-    // this.removeFrom = !this.removeFrom
+    const arr =  Array.from(newarray)
+    localStorage.setItem('mealIds', JSON.stringify(arr))
+    if(this.favMeals.includes(this.mealID)){
+      this.addTo = false
+      this.removeFrom = true
+    }
+    
+  }
+  removeFromFav(){
+    const index = this.favMeals.indexOf(this.mealID)
+    if(index > -1 ){
+      this.favMeals.splice(index, 1)
+      this.addTo = true
+      this.removeFrom = false
+    }
+    localStorage.setItem('mealIds', JSON.stringify(this.favMeals))
   }
 }
