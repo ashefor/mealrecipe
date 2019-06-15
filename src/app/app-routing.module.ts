@@ -4,11 +4,13 @@ import { HomeComponent } from './components/home/home.component';
 import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.component';
 import { SearchComponent } from './components/search/search.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'random', component: RandomrecipeComponent},
   {path: 'recipe/:id', component: RecipeComponent},
+  {path: 'favorites', component: FavoritesComponent},
   {path: 'search', component: SearchComponent, pathMatch: 'prefix'},
 ];
 
@@ -17,4 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routeComponents = [HomeComponent, RandomrecipeComponent, SearchComponent, RecipeComponent]
+export const routeComponents = [HomeComponent, RandomrecipeComponent, SearchComponent, RecipeComponent, FavoritesComponent]
