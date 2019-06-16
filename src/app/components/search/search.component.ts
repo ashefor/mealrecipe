@@ -19,12 +19,12 @@ export class SearchComponent implements OnInit {
   newObj: { [key: string]: string } = {}
   searchedData: any[] = [];
   searchresults: number;
+  showLoader = true;
   constructor(private route: ActivatedRoute, private service: RecipesService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params=>{
       this.s = params.s;
-      console.log(this.s)
     })
     this.searchDB();
   }
@@ -32,9 +32,10 @@ export class SearchComponent implements OnInit {
     this.service.searchRecipeDB(this.s).subscribe((res:any)=>{
       if(res.meals === null){
         this.nothingFound = true;
+        this.showLoader = false;
       }else{
+        this.showLoader =  false;
         this.searchedData = res.meals
-        console.log(this.searchedData)
         this.itemsFound = true;
         this.searchresults=this.searchedData.length;
         let resultsarray = this.searchedData
