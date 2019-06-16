@@ -10,6 +10,7 @@ import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.co
 import { SearchComponent } from './components/search/search.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 
@@ -21,7 +22,8 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     RandomrecipeComponent,
     SearchComponent,
     RecipeComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
