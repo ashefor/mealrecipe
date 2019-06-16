@@ -22,8 +22,8 @@
       </nav>
     </div>
     <div *ngIf="showLoader" class="overlay">
-        <img class="loading" src="../../../assets/bars.svg">
-      </div>
+      <img class="loading" src="../../../assets/bars.svg">
+    </div>
     <div>
       <div class="search_results">
         <div *ngIf="nothingFound" class="search_results_nothing">
@@ -37,30 +37,29 @@
                   <img src="{{search.strMealThumb}}" alt="">
                 </div>
                 <div class="search_area_header">
-                  
-                    <div class="search_area_header_sub_info_area">
-                        <small>
-                          {{search.strArea}}
-                        </small>
-                      </div>
+
+                  <div class="search_area_header_sub_info_area">
+                    <small>
+                      {{search.strArea}}
+                    </small>
+                  </div>
                   <div class="search_area_header_recipe_title">
                     <h4>
                       <a routerLink="/recipe/{{search.idMeal}}">{{search.strMeal}}</a>
                     </h4>
                   </div>
                   <div class="search_area_header_sub_info">
-                      <small>
-                        {{search.strCategory}}
-                      </small>
+                    <small>
+                      {{search.strCategory}}
+                    </small>
                   </div>
                   <div class="search_area_header_read_more">
                     <a routerLink="/recipe/{{search.idMeal}}"><span>Show Recipe</span></a>
                   </div>
                   <div class="removeFav">
                     <a class="middle-member_2" title="remove from favorites" (click)="removeFromFav($event)">
-                    <input id="mealID" type="text" value="{{search.idMeal}}">
-                      <i
-                      class="fas fa-star"></i><span>Remove from favorites</span></a>
+                      <input id="mealID" type="text" value="{{search.idMeal}}">
+                      <i class="fas fa-star"></i><span>Remove from favorites</span></a>
                   </div>
                 </div>
               </div>

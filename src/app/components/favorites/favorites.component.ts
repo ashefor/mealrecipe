@@ -36,7 +36,6 @@ export class FavoritesComponent implements OnInit {
         if(res){
           this.showLoader = false;
           this.meals.push(res.meals[0])
-        console.log(this.meals)
         let allObj = res.meals[0];
         const youTubeLink = allObj.strYoutube
         const cleanLink = youTubeLink.replace('watch?v=', 'embed/')
@@ -54,15 +53,10 @@ export class FavoritesComponent implements OnInit {
     localStorage.clear()
   }
   removeFromFav(e){
-    // console.log(this.favMeals.indexOf(this.mealID))
     let mealID = e.path[1].childNodes[0].value
     const index = this.favMeals.indexOf(mealID)
-    console.log(index)
     if(index > -1 ){
       this.favMeals.splice(index, 1)
-      console.log(this.favMeals)
-      // this.router.navigate(['/favorites'])
-      // window.top.location = window.top.location
       window.location.reload()
     }
     localStorage.setItem('mealIds', JSON.stringify(this.favMeals))
