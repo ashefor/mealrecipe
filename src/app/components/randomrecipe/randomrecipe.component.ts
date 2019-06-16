@@ -17,12 +17,14 @@ export class RandomrecipeComponent implements OnInit {
   newObj: { [key: string]: string } = {};
   noOfIngredients;
   i;
+  mealID;
   getIngredients: any;
   public safeURL: SafeResourceUrl;
   showLoader = true;
   public radLink: string;
   addTo = true;
   removeFrom = false;
+  public favMeals = []
   constructor(private service: RecipesService, private router: Router, private sanitizer: DomSanitizer) { }//these are all injected dependencies
 
   ngOnInit() {
@@ -30,6 +32,16 @@ export class RandomrecipeComponent implements OnInit {
     this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(sessionStorage.getItem('youtube')) //getting the sanitized URL
     this.noOfIngredients = sessionStorage.getItem('noOfIngre')
     this.newObj = JSON.parse(sessionStorage.getItem('ingredients'))// getting the ingredients object from storage
+    this.mealID = sessionStorage.getItem('mealid')
+    const retrrievedData = localStorage.getItem('mealIds')
+    this.favMeals = JSON.parse(retrrievedData)
+    if(this.favMeals == null){
+      this.favMeals = [];
+    }
+    if(this.favMeals.includes(this.mealID)){
+      this.addTo = false
+      this.removeFrom = true
+    }
     if(this.newRandomRecipe.length > 0){
       this.showLoader = false;
     }
@@ -41,10 +53,11 @@ export class RandomrecipeComponent implements OnInit {
     this.msmArray.length = 0;
     this.service.getRandomRecipe().subscribe((res: any) => {
       if(res){
-        console.log(res)
         this.showLoader = false;
         this.newRandomRecipe = res.meals; //set data from the api call into an empty array
       sessionStorage.setItem('data', JSON.stringify(res.meals)) //storing that data in sessionstorage
+      this.mealID = res.meals[0].idMeal;
+      sessionStorage.setItem('mealid', this.mealID)
       this.radLink = res.meals[0].strYoutube; // used to get the youtube link so it can be sanitized and used
       const str = this.radLink.replace('watch?v=', 'embed/'); //replacing watch with embed so as to properly embed the youtube video or else error
       this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(str) //sanitizing the youtube URl
@@ -79,8 +92,25 @@ export class RandomrecipeComponent implements OnInit {
   }
 
   addToFav() {
-    // alert('clicked')
-    this.addTo = !this.addTo;
-    this.removeFrom = !this.removeFrom
+    if(this.mealID != null){
+      this.favMeals.push(this.mealID)
+    }
+    const newarray = new Set(this.favMeals)
+    const arr =  Array.from(newarray)
+    localStorage.setItem('mealIds', JSON.stringify(arr))
+    if(this.favMeals.includes(this.mealID)){
+      this.addTo = false
+      this.removeFrom = true
+    }
+    
+  }
+  removeFromFav(){
+    const index = this.favMeals.indexOf(this.mealID)
+    if(index > -1 ){
+      this.favMeals.splice(index, 1)
+      this.addTo = true
+      this.removeFrom = false
+    }
+    localStorage.setItem('mealIds', JSON.stringify(this.favMeals))
   }
 }
