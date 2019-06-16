@@ -26,8 +26,10 @@ export class RecipeComponent implements OnInit {
   ngOnInit() {
     const retrrievedData = localStorage.getItem('mealIds')
     this.favMeals = JSON.parse(retrrievedData)
-    
-    console.log(this.favMeals)
+    if(this.favMeals == null){
+      this.favMeals = [];
+      console.log(this.favMeals)
+    }
     this.route.params.subscribe(
       (params: Params) => {
         this.service.lookup(params.id).subscribe((res: any) => {
