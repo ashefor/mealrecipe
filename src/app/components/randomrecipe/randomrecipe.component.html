@@ -50,9 +50,14 @@
               </div>
               <div class="interact_btns">
                   <span class="first-member" title="ingredients"> <b>{{noOfIngredients}}</b> Ingredients</span>
-                  <a class="middle-member" title="add to favorites" (click)="addToFav()"><i class="fas fa-star"></i><span *ngIf="addTo">Add to favorites</span><span *ngIf="removeFrom">Remove from favorites</span></a>
-                  <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i>Share Recipe</a>
-              </div>
+                  <a *ngIf="addTo" class="middle-member_1" title="add to favorites" (click)="addToFav()"><i
+                      class="fas fa-star"></i><span>Add to favorites</span></a>
+                  <a *ngIf="removeFrom" class="middle-member_2" title="remove from favorites" (click)="removeFromFav()"><i
+                      class="fas fa-star"></i><span>Remove from favorites</span></a>
+                  <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i><span>
+                      Share Recipe
+                  </span></a>
+                </div>
             </div>
           </div>
         </div>
@@ -84,15 +89,5 @@
         </div>
       </div>
     </div>
-    <footer>
-        <div>
-            <span>
-                <i class="far fa-copyright"></i> <span>Michael Ashefor</span>
-            </span>
-        </div>
-        <div class="sponsoredby"> 
-          Powered by <a href="https://www.themealdb.com/api.php">The Meal DB</a>
-        </div>
-      </footer>
   </div>
 </div>
