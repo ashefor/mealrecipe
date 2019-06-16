@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  recipeCategory: [] = []
+  recipeCategory = [];
   constructor(private service:RecipesService, private router:Router) { }
 
   ngOnInit() {
@@ -27,4 +27,9 @@ export class HomeComponent implements OnInit {
       console.log(res)
     })
   }
+  // getSeafood(){
+  //   this.service.filterbyCat(param).subscribe((res: any)=>{
+  //     console.log(res)
+  //   })
+  // }
 }
