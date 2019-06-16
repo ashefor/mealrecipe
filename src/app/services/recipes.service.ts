@@ -23,4 +23,7 @@ export class RecipesService {
   lookup(params){
     return this.http.get(`${this.baseURL}lookup.php?i=${params}`)
   }
+  filterbyCat(params){
+    return this.http.get(`${this.baseURL}filter.php?c=${params}`)
+  }
 }
