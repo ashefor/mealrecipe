@@ -6,17 +6,19 @@
           <p><a routerLink="">rad-recipe</a></p>
         </div>
         <div class="nav_menu_search">
-            <form method="get" action="/search" accept-charset="UTF-8">
-              <input class="nav_menu_search_input" type="text" name="s" id="" placeholder="enter a recipe or meal">
-            </form>
+          <form method="get" action="/search" accept-charset="UTF-8">
+            <input class="nav_menu_search_input" type="text" name="s" id=""
+              placeholder="search for a meal or ingredient...">
+          </form>
         </div>
         <div class="nav_menulinks">
           <ul class="nav_menulinks_links">
-            <li><a routerLink="">demo</a></li>
             <li><a routerLink="/favorites">favorites</a></li>
-            <a routerLink="/random">
-              <li>random recipe</li>
-            </a>
+            <li>
+              <a routerLink="/random">
+                random recipe
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -25,7 +27,7 @@
       <button (click)="getRandomRecipe()">click to get a random recipe</button>
     </div>
     <div *ngIf="showLoader" class="overlay">
-        <img class="loading" src="../../../assets/bars.svg" alt="">
+      <img class="loading" src="../../../assets/bars.svg" alt="">
     </div>
     <div>
       <div class="recipe_area">
@@ -44,20 +46,22 @@
             </h1>
             <div class="recipe_area_header_sub_info">
               <div class="recipe_area_header_sub_info_cat">
-                <small>
-                  {{random.strCategory}}
-                </small>
+                  <a href="/category/{{random.strCategory}}" title="category"> 
+                    <small>
+                        {{random.strCategory}}
+                      </small>
+                  </a>
               </div>
               <div class="interact_btns">
-                  <span class="first-member" title="ingredients"> <b>{{noOfIngredients}}</b> Ingredients</span>
-                  <a *ngIf="addTo" class="middle-member_1" title="add to favorites" (click)="addToFav()"><i
-                      class="fas fa-star"></i><span>Add to favorites</span></a>
-                  <a *ngIf="removeFrom" class="middle-member_2" title="remove from favorites" (click)="removeFromFav()"><i
-                      class="fas fa-star"></i><span>Remove from favorites</span></a>
-                  <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i><span>
-                      Share Recipe
+                <span class="first-member" title="ingredients"> <b>{{noOfIngredients}}</b> Ingredients</span>
+                <a *ngIf="addTo" class="middle-member_1" title="add to favorites" (click)="addToFav()"><i
+                    class="fas fa-star"></i><span>Add to favorites</span></a>
+                <a *ngIf="removeFrom" class="middle-member_2" title="remove from favorites" (click)="removeFromFav()"><i
+                    class="fas fa-star"></i><span>Remove from favorites</span></a>
+                <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i><span>
+                    Share Recipe
                   </span></a>
-                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -80,7 +84,7 @@
         <div class="recipe_area_video" *ngFor="let random of newRandomRecipe">
           <div class="recipe_area_video_watch" *ngIf="random.strYoutube.length > 0">
             <span>
-              Need more help? Watch video 
+              Need more help? Watch video
             </span>
           </div>
           <div class="recipe_area_video_youtube" *ngIf="random.strYoutube.length > 0">

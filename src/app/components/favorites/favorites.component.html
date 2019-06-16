@@ -7,16 +7,18 @@
         </div>
         <div class="nav_menu_search">
           <form method="get" action="/search" accept-charset="UTF-8">
-            <input class="nav_menu_search_input" type="text" name="s" id="" placeholder="enter a recipe or meal">
+            <input class="nav_menu_search_input" type="text" name="s" id=""
+              placeholder="search for a meal or ingredient...">
           </form>
         </div>
         <div class="nav_menulinks">
           <ul class="nav_menulinks_links">
-            <li><a routerLink="">demo</a></li>
             <li><a routerLink="/favorites">favorites</a></li>
-            <a href="/random">
-              <li>random recipe</li>
-            </a>
+            <li>
+              <a routerLink="/random">
+                random recipe
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -25,40 +27,42 @@
       <img class="loading" src="../../../assets/bars.svg">
     </div>
     <div>
-      <div class="search_results">
-        <div *ngIf="nothingFound" class="search_results_nothing">
+      <div class="favorite_results">
+        <div *ngIf="nothingFound" class="favorite_results_nothing">
           <h4>You've not added any favorites yet</h4>
         </div>
         <div>
-          <div class="search_area">
-            <div *ngFor="let search of meals; let i = index" class="search_area_results">
-              <div class="search_area_details">
-                <div class="search_area_img">
-                  <img src="{{search.strMealThumb}}" alt="">
+          <div class="favorite_area">
+            <div *ngFor="let favorite of meals; let i = index" class="favorite_area_results">
+              <div class="favorite_area_details">
+                <div class="favorite_area_img">
+                  <img src="{{favorite.strMealThumb}}" alt="">
                 </div>
-                <div class="search_area_header">
+                <div class="favorite_area_header">
 
-                  <div class="search_area_header_sub_info_area">
+                  <div class="favorite_area_header_sub_info_area">
                     <small>
-                      {{search.strArea}}
+                      {{favorite.strArea}}
                     </small>
                   </div>
-                  <div class="search_area_header_recipe_title">
+                  <div class="favorite_area_header_recipe_title">
                     <h4>
-                      <a routerLink="/recipe/{{search.idMeal}}">{{search.strMeal}}</a>
+                      <a routerLink="/recipe/{{favorite.idMeal}}">{{favorite.strMeal}}</a>
                     </h4>
                   </div>
-                  <div class="search_area_header_sub_info">
-                    <small>
-                      {{search.strCategory}}
-                    </small>
+                  <div class="favorite_area_header_sub_info">
+                      <a href="/category/{{favorite.strCategory}}" title="category"> 
+                        <small>
+                            {{favorite.strCategory}}
+                          </small>
+                      </a>
                   </div>
-                  <div class="search_area_header_read_more">
-                    <a routerLink="/recipe/{{search.idMeal}}"><span>Show Recipe</span></a>
+                  <div class="favorite_area_header_read_more">
+                    <a routerLink="/recipe/{{favorite.idMeal}}"><span>Show Recipe</span></a>
                   </div>
                   <div class="removeFav">
                     <a class="middle-member_2" title="remove from favorites" (click)="removeFromFav($event)">
-                      <input id="mealID" type="text" value="{{search.idMeal}}">
+                      <input id="mealID" type="text" value="{{favorite.idMeal}}">
                       <i class="fas fa-star"></i><span>Remove from favorites</span></a>
                   </div>
                 </div>

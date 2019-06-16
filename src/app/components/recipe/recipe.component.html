@@ -7,16 +7,18 @@
         </div>
         <div class="nav_menu_search">
           <form method="get" action="/search" accept-charset="UTF-8">
-            <input class="nav_menu_search_input" type="text" name="s" id="" placeholder="enter a recipe or meal">
+            <input class="nav_menu_search_input" type="text" name="s" id=""
+              placeholder="search for a meal or ingredient...">
           </form>
         </div>
         <div class="nav_menulinks">
           <ul class="nav_menulinks_links">
-            <li><a routerLink="">demo</a></li>
             <li><a routerLink="/favorites">favorites</a></li>
-            <a routerLink="/random">
-              <li>random recipe</li>
-            </a>
+            <li>
+              <a routerLink="/random">
+                random recipe
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -41,9 +43,11 @@
             </h1>
             <div class="recipe_area_header_sub_info">
               <div class="recipe_area_header_sub_info_cat">
-                <small>
-                  {{search.strCategory}}
-                </small>
+                  <a href="/category/{{search.strCategory}}" title="category"> 
+                    <small>
+                        {{search.strCategory}}
+                      </small>
+                  </a>
               </div>
               <div class="interact_btns">
                 <span class="first-member" title="ingredients"> <b>{{noOfIngredients}}</b> Ingredients</span>
@@ -53,7 +57,7 @@
                     class="fas fa-star"></i><span>Remove from favorites</span></a>
                 <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i><span>
                     Share Recipe
-                </span></a>
+                  </span></a>
               </div>
             </div>
           </div>
