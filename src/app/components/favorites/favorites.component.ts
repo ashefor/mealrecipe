@@ -20,6 +20,9 @@ export class FavoritesComponent implements OnInit {
   newObj: { [key: string]: string } = {};
   nothingFound = false;
   showLoader = true;
+  fixedInViewport = true;
+  fixedTopGap = 0;
+  fixedBottomGap = 0;
   constructor(private service: RecipesService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {

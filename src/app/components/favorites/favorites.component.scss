@@ -227,7 +227,7 @@ a:hover{
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 400px;
+    // max-width: 400px;
     height: 350px;
 }
 .favorite_area_img img{
@@ -269,4 +269,163 @@ footer{
     left:0;
     background-color:rgba(74,74,74,.5);
     z-index:99999;
+}
+.menubtn{
+    display: none;
+}
+
+@media only screen and (max-width: 479px) {
+    mat-sidenav-content{
+        background: white;
+        padding: 5px;
+    }
+    .menubtn{
+        display: block
+    }
+    .nav_menu_home{
+        display: none;
+    }
+    .nav_menulinks{
+        display: none;
+    }
+    .sidenav{
+        width: 75%
+    }
+    .favorite_area_details{
+        display: block
+    }
+    .favorite_area_header{
+        padding: 20px;
+        float: unset;
+        width: auto;
+    }
+    .removeFav{
+        margin-top: 20px;
+    }
+    .favorite_area{
+        grid-gap: 20px;
+    }
+    .favorite_results{
+        margin-top: 10px;
+    }
+    .favorite_area_img{
+        height: auto;
+        margin: auto;
+    }
+    .favorite_area_details{
+        box-shadow: none;
+        border: 1px solid
+    }
+    .favorite_area_results{
+        margin-bottom: unset;
+    }
+    .favorite_area_header_recipe_title h4{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .favorite_area_header_sub_info small{
+        font-size: 12px;
+        margin: 0;
+    }
+    .avorite_area_header_sub_info_area small{
+        font-size: 12px;
+        margin: 0;
+    }
+    .favorite_area_header_read_more a{
+        font-size: 12px;
+    }
+    .middle-member_2 span{
+        font-size: 12px;
+    }
+    .nav_menu_search_input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .nav_menu_search_input::placeholder{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .nav_menu_search{
+        width: 60%
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    mat-sidenav-content{
+        background: white;
+        padding: 5px;
+    }
+    .menubtn{
+        display: block
+    }
+    .nav_menu_home{
+        display: none;
+    }
+    .nav_menulinks{
+        display: none;
+    }
+    .sidenav{
+        width: 75%
+    }
+    .favorite_area_details{
+        display: block
+    }
+    .favorite_area_header{
+        padding: 20px;
+        float: unset;
+        width: auto;
+    }
+    .removeFav{
+        margin-top: 20px;
+    }
+    .favorite_area{
+        grid-gap: 20px;
+    }
+    .favorite_results{
+        margin-top: 10px;
+    }
+    .favorite_area_img{
+        max-width: unset;
+        height: auto;
+        margin: auto;
+    }
+    .favorite_area_details{
+        box-shadow: none;
+        border: 1px solid
+    }
+    .favorite_area_results{
+        margin-bottom: unset;
+    }
+    .favorite_area_header_recipe_title h4{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .favorite_area_header_sub_info small{
+        font-size: 12px;
+        margin: 0;
+    }
+    .avorite_area_header_sub_info_area small{
+        font-size: 12px;
+        margin: 0;
+    }
+    .favorite_area_header_read_more a{
+        font-size: 12px;
+    }
+    .middle-member_2 span{
+        font-size: 12px;
+    }
+    .nav_menu_search_input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .nav_menu_search_input::placeholder{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .nav_menu_search{
+        width: 60%
+    }
 }
