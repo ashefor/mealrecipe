@@ -12,6 +12,9 @@ import { RecipeComponent } from './components/recipe/recipe.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CategoryComponent } from './components/category/category.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { CategoryComponent } from './components/category/category.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
 
   ],
   providers: [RecipesService],
