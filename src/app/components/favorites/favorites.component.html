@@ -1,5 +1,5 @@
 <div>
-  <div>
+  <div style="position: relative">
     <div>
       <nav class="nav_menu">
         <div class="nav_menu_home">
@@ -21,6 +21,9 @@
         </div>
       </nav>
     </div>
+    <div *ngIf="showLoader" class="overlay">
+        <img class="loading" src="../../../assets/bars.svg">
+      </div>
     <div>
       <div class="search_results">
         <div *ngIf="nothingFound" class="search_results_nothing">
@@ -54,8 +57,9 @@
                     <a routerLink="/recipe/{{search.idMeal}}"><span>Show Recipe</span></a>
                   </div>
                   <div class="removeFav">
+                    <a class="middle-member_2" title="remove from favorites" (click)="removeFromFav($event)">
                     <input id="mealID" type="text" value="{{search.idMeal}}">
-                    <a class="middle-member_2" title="remove from favorites" (click)="removeFromFav()"><i
+                      <i
                       class="fas fa-star"></i><span>Remove from favorites</span></a>
                   </div>
                 </div>
