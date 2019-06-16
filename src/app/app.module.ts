@@ -1,3 +1,5 @@
+import { MatSidenavModule, MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +14,7 @@ import { RecipeComponent } from './components/recipe/recipe.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CategoryComponent } from './components/category/category.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 
 
@@ -32,7 +34,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
 
   ],
   providers: [RecipesService],
