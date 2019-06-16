@@ -3,6 +3,7 @@
 }
 .nav_menu_search{
     margin: auto;
+    width: 20%
 }
 .nav_menu_search span{
    padding: 50px;
@@ -43,10 +44,6 @@
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-}
-.nav_menulinks_links li:last-child{
-    background: transparent;
-    border: 2px solid black;
 }
 .nav_menu_home{
     margin-left: 25px;
@@ -125,8 +122,11 @@
     //  display: flex;
     text-align: center
  }
+ .search_area_header_sub_info a{
+     text-decoration: none;
+ }
  .search_area_header_sub_info small{
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Lora', serif;
     font-weight: 300;
     color: red;
@@ -147,7 +147,7 @@
      justify-content: center
  }
  .search_area_header_sub_info_area small{
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Lora', serif;
     font-weight: 300;
     color: red;

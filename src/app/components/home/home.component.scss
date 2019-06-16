@@ -13,6 +13,7 @@
 }
 .nav_menu_search{
     margin: auto;
+    width: 20%;
 }
 .nav_menu_search span{
    padding: 50px;
@@ -51,10 +52,6 @@
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-}
-.nav_menulinks_links li:last-child{
-    background: transparent;
-    border: 2px solid white;
 }
 .nav_menu_home{
     margin-left: 25px;
