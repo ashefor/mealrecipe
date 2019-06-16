@@ -273,6 +273,21 @@ footer{
 .menubtn{
     display: none;
 }
+.hidden_search{
+    display: none;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav_menu_search_input{
+    padding: 20px;
+    width: -webkit-fill-available;
+    border-radius: 15px;
+    outline: none;
+    font-size: 20px;
+    border: 1px solid black;
+    // background: #e8e7e7;
+ }
 
 @media only screen and (max-width: 479px) {
     mat-sidenav-content{
@@ -282,14 +297,19 @@ footer{
     .menubtn{
         display: block
     }
-    .nav_menu_home{
-        display: none;
+    .nav_menu_home p{
+        // display: none;
+        padding: unset;
     }
     .nav_menulinks{
         display: none;
     }
+    .hidden_search{
+        display: block;
+    }
     .sidenav{
-        width: 75%
+        width: 75%;
+        z-index: 999;
     }
     .favorite_area_details{
         display: block
@@ -300,7 +320,7 @@ footer{
         width: auto;
     }
     .removeFav{
-        margin-top: 20px;
+        // margin-top: 20px;
     }
     .favorite_area{
         grid-gap: 20px;
@@ -309,8 +329,13 @@ footer{
         margin-top: 10px;
     }
     .favorite_area_img{
+        width: 100%;
         height: auto;
-        margin: auto;
+        // margin: auto;
+    }
+    .favorite_area_img img{
+        width: 100%;
+        height: auto;
     }
     .favorite_area_details{
         box-shadow: none;
@@ -348,7 +373,8 @@ footer{
         line-height: 15px;
     }
     .nav_menu_search{
-        width: 60%
+        // width: 60%
+        display: none;
     }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px){

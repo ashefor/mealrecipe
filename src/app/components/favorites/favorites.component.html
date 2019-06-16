@@ -40,6 +40,12 @@
       </mat-sidenav>
       <mat-sidenav-content>
         <div>
+            <div class="hidden_search"> 
+                <form method="get" action="/search" accept-charset="UTF-8">
+                  <input class="nav_menu_search_input" type="text" name="s" id=""
+                    placeholder="search for a meal or ingredient...">
+                </form>
+            </div>
           <div class="favorite_results">
             <div *ngIf="nothingFound" class="favorite_results_nothing">
               <h4>You've not added any favorites yet</h4>
