@@ -56,13 +56,14 @@ export class FavoritesComponent implements OnInit {
     localStorage.clear()
   }
   removeFromFav(e){
-    let mealID = e.path[1].childNodes[0].value
-    const index = this.favMeals.indexOf(mealID)
-    if(index > -1 ){
-      this.favMeals.splice(index, 1)
-      window.location.reload()
-    }
-    localStorage.setItem('mealIds', JSON.stringify(this.favMeals))
+    // console.log(e)
+    // let mealID = e.path[1].childNodes[0].value
+    // const index = this.favMeals.indexOf(mealID)
+    // if(index > -1 ){
+    //   this.favMeals.splice(index, 1)
+    //   window.location.reload()
+    // }
+    // localStorage.setItem('mealIds', JSON.stringify(this.favMeals))
   }
 }
 
