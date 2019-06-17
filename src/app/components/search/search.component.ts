@@ -20,6 +20,9 @@ export class SearchComponent implements OnInit {
   searchedData: any[] = [];
   searchresults: number;
   showLoader = true;
+  fixedInViewport = true;
+  fixedTopGap = 0;
+  fixedBottomGap = 0;
   constructor(private route: ActivatedRoute, private service: RecipesService) { }
 
   ngOnInit() {

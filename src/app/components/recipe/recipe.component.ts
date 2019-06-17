@@ -21,6 +21,9 @@ export class RecipeComponent implements OnInit {
   removeFrom = false;
   public safeUrl: SafeResourceUrl;
   showLoader = true;
+  fixedInViewport = true;
+  fixedTopGap = 0;
+  fixedBottomGap = 0;
   constructor(private route: ActivatedRoute, private service: RecipesService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {

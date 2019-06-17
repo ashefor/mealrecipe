@@ -8,7 +8,7 @@ mat-sidenav-container{
 }
 .nav_menu_search{
     margin: auto;
-    width: 20%
+    width: 25%
 }
 .nav_menu_search span{
    padding: 50px;
@@ -508,10 +508,6 @@ mat-sidenav-container{
         padding: 10px;
         border-radius: 5px;
     }
-    .nav_menu_search_input::placeholder{
-        // font-size: 12px;
-        // line-height: 15px;
-    }
     .nav_menu_search{
         width: 60%
     }
@@ -531,10 +527,6 @@ mat-sidenav-container{
     }
     .menubtn{
         display: block
-    }
-    .nav_menu_home{
-        // margin-left: auto;
-        // padding-right: 5px
     }
     .nav_menu_home p{
         // display: none;

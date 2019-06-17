@@ -16,23 +16,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories()
-    this.allCat()
   }
 
   getCategories(){
     this.service.getAllCategories().subscribe((res:any)=>{
       this.recipeCategory = res.categories;
-      console.log(this.recipeCategory)
     })
   }
-  allCat(){
-    this.service.listAllCategories().subscribe((res:any)=>{
-      console.log(res)
-    })
-  }
-  // getSeafood(){
-  //   this.service.filterbyCat(param).subscribe((res: any)=>{
-  //     console.log(res)
-  //   })
-  // }
 }

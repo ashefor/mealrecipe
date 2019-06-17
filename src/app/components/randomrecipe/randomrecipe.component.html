@@ -1,47 +1,48 @@
 <div>
-  <div>
-    <div>
-      <nav class="nav_menu">
-        <button mat-button class="menubtn" (click)="sidenav.open()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <div class="nav_menu_home">
-          <p><a routerLink="">rad-recipe</a></p>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav class="sidenav" [fixedInViewport]="fixedInViewport" [fixedTopGap]="fixedTopGap"
+      [fixedBottomGap]="fixedBottomGap">
+      <mat-nav-list role="list">
+        <mat-list-item role="navigation"><a routerLink="">Rad-Recipe</a></mat-list-item>
+        <mat-list-item role="navigation"><a routerLink="/favorites">Favorites</a></mat-list-item>
+        <mat-list-item role="navigation"><a routerLink="/random">Random</a></mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div>
+        <div>
+          <nav class="nav_menu">
+            <button mat-button class="menubtn" (click)="sidenav.open()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <div class="nav_menu_home">
+              <p><a routerLink="">rad-recipe</a></p>
+            </div>
+            <div class="nav_menu_search">
+              <form method="get" action="/search" accept-charset="UTF-8">
+                <input class="nav_menu_search_input" type="text" name="s" id=""
+                  placeholder="search for a meal or ingredient...">
+              </form>
+            </div>
+            <div class="nav_menulinks">
+              <ul class="nav_menulinks_links">
+                <li><a routerLink="/favorites">favorites</a></li>
+                <li>
+                  <a routerLink="/random">
+                    random recipe
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div class="nav_menu_search">
-          <form method="get" action="/search" accept-charset="UTF-8">
-            <input class="nav_menu_search_input" type="text" name="s" id=""
-              placeholder="search for a meal or ingredient...">
-          </form>
+        <div class="randomise_recipe">
+          <button (click)="getRandomRecipe()">click to get a random recipe</button>
         </div>
-        <div class="nav_menulinks">
-          <ul class="nav_menulinks_links">
-            <li><a routerLink="/favorites">favorites</a></li>
-            <li>
-              <a routerLink="/random">
-                random recipe
-              </a>
-            </li>
-          </ul>
+        <div *ngIf="showLoader" class="overlay">
+          <img class="loading" src="../../../assets/bars.svg" alt="">
         </div>
-      </nav>
-    </div>
-    <div class="randomise_recipe">
-      <button (click)="getRandomRecipe()">click to get a random recipe</button>
-    </div>
-    <div *ngIf="showLoader" class="overlay">
-      <img class="loading" src="../../../assets/bars.svg" alt="">
-    </div>
-    <mat-sidenav-container>
-      <mat-sidenav #sidenav class="sidenav" [fixedInViewport]="fixedInViewport" [fixedTopGap]="fixedTopGap"
-        [fixedBottomGap]="fixedBottomGap">
-        <mat-nav-list role="list">
-          <mat-list-item role="navigation"><a routerLink="">Rad-Recipe</a></mat-list-item>
-          <mat-list-item role="navigation"><a routerLink="/favorites">Favorites</a></mat-list-item>
-          <mat-list-item role="navigation"><a routerLink="/random">Random</a></mat-list-item>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content>
+
         <div>
           <div class="hidden_search">
             <form method="get" action="/search" accept-charset="UTF-8">
@@ -112,7 +113,7 @@
             </div>
           </div>
         </div>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
