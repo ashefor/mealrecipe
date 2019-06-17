@@ -24,7 +24,10 @@ export class RandomrecipeComponent implements OnInit {
   public radLink: string;
   addTo = true;
   removeFrom = false;
-  public favMeals = []
+  public favMeals = [];
+  fixedInViewport = true;
+  fixedTopGap = 0;
+  fixedBottomGap = 0;
   constructor(private service: RecipesService, private router: Router, private sanitizer: DomSanitizer) { }//these are all injected dependencies
 
   ngOnInit() {

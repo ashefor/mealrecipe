@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   recipeCategory = [];
+  fixedInViewport = true;
+  fixedTopGap = 0;
+  fixedBottomGap = 0;
   constructor(private service:RecipesService, private router:Router) { }
 
   ngOnInit() {

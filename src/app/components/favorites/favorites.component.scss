@@ -296,11 +296,15 @@ footer{
 
 @media only screen and (max-width: 479px) {
     mat-sidenav-content{
-        background: white;
+        // background: white;
         padding: 5px;
     }
     .menubtn{
         display: block
+    }
+    .nav_menu_home{
+        margin-left: auto;
+        padding-right: 5px
     }
     .nav_menu_home p{
         // display: none;
@@ -359,7 +363,7 @@ footer{
         font-size: 12px;
         margin: 0;
     }
-    .avorite_area_header_sub_info_area small{
+    .favorite_area_header_sub_info_area small{
         font-size: 12px;
         margin: 0;
     }
@@ -374,8 +378,8 @@ footer{
         border-radius: 5px;
     }
     .nav_menu_search_input::placeholder{
-        font-size: 12px;
-        line-height: 15px;
+        font-size: 15px;
+        // line-height: 15px;
     }
     .nav_menu_search{
         // width: 60%
@@ -391,13 +395,22 @@ footer{
         display: block
     }
     .nav_menu_home{
-        display: none;
+        margin-left: auto;
+        padding-right: 5px
+    }
+    .nav_menu_home p{
+        // display: none;
+        padding: unset;
     }
     .nav_menulinks{
         display: none;
     }
+    .hidden_search{
+        display: block;
+    }
     .sidenav{
-        width: 75%
+        width: 75%;
+        z-index: 3;
     }
     .favorite_area_details{
         display: block
@@ -438,7 +451,7 @@ footer{
         font-size: 12px;
         margin: 0;
     }
-    .avorite_area_header_sub_info_area small{
+    .favorite_area_header_sub_info_area small{
         font-size: 12px;
         margin: 0;
     }
@@ -453,10 +466,48 @@ footer{
         border-radius: 5px;
     }
     .nav_menu_search_input::placeholder{
-        font-size: 12px;
-        line-height: 15px;
+        // font-size: 12px;
+        // line-height: 15px;
     }
     .nav_menu_search{
         width: 60%
+    }
+    .nav_menu_search{
+        // width: 60%
+        display: none;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    mat-sidenav-content{
+        background: white;
+        padding: 5px;
+    }
+    .menubtn{
+        display: block
+    }
+    .nav_menu_home{
+        // margin-left: auto;
+        // padding-right: 5px
+    }
+    .nav_menu_home p{
+        // display: none;
+        padding: unset;
+    }
+    .nav_menulinks{
+        display: none;
+    }
+    .sidenav{
+        width: 75%;
+        z-index: 3;
+    }
+    .nav_menu_search{
+        margin: 0;
+        margin-left: auto;
+        width: 50%;
+        padding-right: 5px;
+    }
+    .favorite_area_details{
+        box-shadow: none;
+        border: 1px solid
     }
 }

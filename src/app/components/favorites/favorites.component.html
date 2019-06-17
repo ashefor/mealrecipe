@@ -40,12 +40,12 @@
       </mat-sidenav>
       <mat-sidenav-content>
         <div>
-            <div class="hidden_search"> 
-                <form method="get" action="/search" accept-charset="UTF-8">
-                  <input class="nav_menu_search_input" type="text" name="s" id=""
-                    placeholder="search for a meal or ingredient...">
-                </form>
-            </div>
+          <div class="hidden_search">
+            <form method="get" action="/search" accept-charset="UTF-8">
+              <input class="nav_menu_search_input" type="text" name="s" id=""
+                placeholder="search for a meal or ingredient...">
+            </form>
+          </div>
           <div class="favorite_results">
             <div *ngIf="nothingFound" class="favorite_results_nothing">
               <h4>You've not added any favorites yet</h4>
@@ -79,11 +79,11 @@
                       <div class="favorite_area_header_read_more">
                         <a routerLink="/recipe/{{favorite.idMeal}}"><span>Show Recipe</span></a>
                       </div>
-                      <div class="removeFav">
+                      <!-- <div class="removeFav">
                         <a class="middle-member_2" title="remove from favorites" (click)="removeFromFav($event)">
                           <input id="mealID" type="text" value="{{favorite.idMeal}}">
                           <i class="fas fa-star"></i><span>Remove from favorites</span></a>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>

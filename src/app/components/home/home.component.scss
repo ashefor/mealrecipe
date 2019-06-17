@@ -10,6 +10,11 @@
 }
 .nav_menu{
     display: flex;
+    z-index: 2;
+}
+mat-sidenav-container{
+    background: transparent;
+    z-index: unset;
 }
 .nav_menu_search{
     margin: auto;
@@ -147,4 +152,210 @@
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+.menubtn{
+    display: none;
+}
+.hidden_search{
+    display: none;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav_menu_search_input{
+    padding: 20px;
+    width: -webkit-fill-available;
+    border-radius: 15px;
+    outline: none;
+    font-size: 20px;
+    border: 1px solid black;
+    // background: #e8e7e7;
+ }
+ @media only screen and (max-width: 479px) {
+    mat-sidenav-content{
+        // background: white;
+        padding: 5px;
+    }
+    .menubtn{
+        display: block;
+        color: white
+    }
+    .nav_menu_home{
+        margin-left: auto;
+        padding-right: 5px
+    }
+    .nav_menu_home p{
+        // display: none;
+        padding: unset;
+    }
+    .nav_menulinks{
+        display: none;
+    }
+    .hidden_search{
+        display: block;
+        width: 85%;
+    }
+    .sidenav{
+        width: 75%;
+        z-index: 3;
+    }
+    .nav_menu_search_input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .nav_menu_search_input::placeholder{
+        font-size: 15px;
+        // line-height: 15px;
+    }
+    .nav_menu_search{
+        // width: 60%
+        display: none;
+    }
+    .center_msg_msgs_main{
+        font-size: 50px
+    }
+    .categories{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+        padding: unset;
+    }
+    .categories_content_img{
+        height: auto;
+    }
+    .choose_category span{
+        font-size: 20px
+    }
+    .center_msg_msgs_sub{
+        margin-bottom: 20px;
+        font-size: unset;
+    }
+    .homewrapper{
+        height: auto;
+        padding-bottom: 10px;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    mat-sidenav-content{
+        // background: white;
+        padding: 5px;
+    }
+    .menubtn{
+        display: block;
+        color: white
+    }
+    .nav_menu_home{
+        margin-left: auto;
+        padding-right: 5px
+    }
+    .nav_menu_home p{
+        // display: none;
+        padding: unset;
+    }
+    .nav_menulinks{
+        display: none;
+    }
+    .hidden_search{
+        display: block;
+        width: 80%;
+    }
+    .sidenav{
+        width: 75%;
+        z-index: 3;
+    }
+    .nav_menu_search_input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .nav_menu_search_input::placeholder{
+        font-size: 15px;
+        // line-height: 15px;
+    }
+    .nav_menu_search{
+        // width: 60%
+        display: none;
+    }
+    .center_msg_msgs_main{
+        font-size: 80px
+    }
+    .categories{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+        padding: unset;
+    }
+    .categories_content_img{
+        height: auto;
+    }
+    .choose_category span{
+        font-size: 20px
+    }
+    .center_msg_msgs_sub{
+        margin-bottom: 20px;
+        font-size: unset;
+    }
+    .homewrapper{
+        height: auto;
+        padding-bottom: 15px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    mat-sidenav-content{
+        // background: white;
+        padding: 5px;
+    }
+    .menubtn{
+        display: block;
+        color: white
+    }
+    .nav_menu_home{
+        padding-right: 5px
+    }
+    .nav_menu_home p{
+        // display: none;
+        padding: unset;
+    }
+    .nav_menulinks{
+        display: none;
+    }
+    
+    .sidenav{
+        width: 75%;
+        z-index: 3;
+    }
+    .nav_menu_search{
+        margin: 0;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 50%;
+        padding-right: 10px;
+    }
+    .nav_menu_search_input{
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .nav_menu_search_input::placeholder{
+        font-size: 15px;
+        // line-height: 15px;
+    }
+    .center_msg_msgs_main{
+        font-size: 100px
+    }
+    .homewrapper{
+        height: auto;
+        padding-bottom: 50px;
+    }
+    .categories{
+        padding: unset;
+    }
+    .categories_content_img{
+        height: auto;
+    }
 }

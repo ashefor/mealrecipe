@@ -2,6 +2,9 @@
   <div>
     <div>
       <nav class="nav_menu">
+        <button mat-button class="menubtn" (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
         <div class="nav_menu_home">
           <p><a routerLink="">rad-recipe</a></p>
         </div>
@@ -29,69 +32,87 @@
     <div *ngIf="showLoader" class="overlay">
       <img class="loading" src="../../../assets/bars.svg" alt="">
     </div>
-    <div>
-      <div class="recipe_area">
-        <div class="recipe_area_details">
-          <div class="recipe_area_img" *ngFor="let random of newRandomRecipe">
-            <img src="{{random.strMealThumb}}" alt="">
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav class="sidenav" [fixedInViewport]="fixedInViewport" [fixedTopGap]="fixedTopGap"
+        [fixedBottomGap]="fixedBottomGap">
+        <mat-nav-list role="list">
+          <mat-list-item role="navigation"><a routerLink="">Rad-Recipe</a></mat-list-item>
+          <mat-list-item role="navigation"><a routerLink="/favorites">Favorites</a></mat-list-item>
+          <mat-list-item role="navigation"><a routerLink="/random">Random</a></mat-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div>
+          <div class="hidden_search">
+            <form method="get" action="/search" accept-charset="UTF-8">
+              <input class="nav_menu_search_input" type="text" name="s" id=""
+                placeholder="search for a meal or ingredient...">
+            </form>
           </div>
-          <div class="recipe_area_header" *ngFor="let random of newRandomRecipe">
-            <span>
-              <small>
-                {{random.strArea}}
-              </small>
-            </span>
-            <h1>
-              {{random.strMeal}}
-            </h1>
-            <div class="recipe_area_header_sub_info">
-              <div class="recipe_area_header_sub_info_cat">
-                  <a href="/category/{{random.strCategory}}" title="category"> 
-                    <small>
+          <div class="recipe_area">
+            <div class="recipe_area_details">
+              <div class="recipe_area_img" *ngFor="let random of newRandomRecipe">
+                <img src="{{random.strMealThumb}}" alt="">
+              </div>
+              <div class="recipe_area_header" *ngFor="let random of newRandomRecipe">
+                <span>
+                  <small>
+                    {{random.strArea}}
+                  </small>
+                </span>
+                <h1>
+                  {{random.strMeal}}
+                </h1>
+                <div class="recipe_area_header_sub_info">
+                  <div class="recipe_area_header_sub_info_cat">
+                    <a href="/category/{{random.strCategory}}" title="category">
+                      <small>
                         {{random.strCategory}}
                       </small>
-                  </a>
+                    </a>
+                  </div>
+                  <div class="interact_btns">
+                    <span class="first-member" title="ingredients"> <b>{{noOfIngredients}}</b> Ingredients</span>
+                    <a *ngIf="addTo" class="middle-member_1" title="add to favorites" (click)="addToFav()"><i
+                        class="fas fa-star"></i><span>Add to favorites</span></a>
+                    <a *ngIf="removeFrom" class="middle-member_2" title="remove from favorites"
+                      (click)="removeFromFav()"><i class="fas fa-star"></i><span>Remove from favorites</span></a>
+                    <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i><span>
+                        Share Recipe
+                      </span></a>
+                  </div>
+                </div>
               </div>
-              <div class="interact_btns">
-                <span class="first-member" title="ingredients"> <b>{{noOfIngredients}}</b> Ingredients</span>
-                <a *ngIf="addTo" class="middle-member_1" title="add to favorites" (click)="addToFav()"><i
-                    class="fas fa-star"></i><span>Add to favorites</span></a>
-                <a *ngIf="removeFrom" class="middle-member_2" title="remove from favorites" (click)="removeFromFav()"><i
-                    class="fas fa-star"></i><span>Remove from favorites</span></a>
-                <a class="third-member" title="share"><i class="fas fa-external-link-alt"></i><span>
-                    Share Recipe
-                  </span></a>
+            </div>
+            <div class="recipe_area_content">
+              <div class="recipe_area_content_ing" *ngFor="let random of newRandomRecipe">
+                <h4>Ingredients(quantity)</h4>
+                <ol>
+                  <li *ngFor="let ing of newObj | keyvalue">{{ing.key}}&nbsp; <span>
+                      ({{ing.value? ing.value: 'none'}})
+                    </span></li>
+                </ol>
+              </div>
+              <div class="recipe_area_content_inst" *ngFor="let random of newRandomRecipe">
+                <h4>Instructions</h4>
+                <span>
+                  {{random.strInstructions}}
+                </span>
+              </div>
+            </div>
+            <div class="recipe_area_video" *ngFor="let random of newRandomRecipe">
+              <div class="recipe_area_video_watch" *ngIf="random.strYoutube.length > 0">
+                <span>
+                  Need more help? Watch video
+                </span>
+              </div>
+              <div class="recipe_area_video_youtube" *ngIf="random.strYoutube.length > 0">
+                <iframe width="250" height="250" [src]='safeURL' frameborder="0" allowfullscreen></iframe>
               </div>
             </div>
           </div>
         </div>
-        <div class="recipe_area_content">
-          <div class="recipe_area_content_ing" *ngFor="let random of newRandomRecipe">
-            <h4>Ingredients(quantity)</h4>
-            <ol>
-              <li *ngFor="let ing of newObj | keyvalue">{{ing.key}}&nbsp; <span>
-                  ({{ing.value? ing.value: 'none'}})
-                </span></li>
-            </ol>
-          </div>
-          <div class="recipe_area_content_inst" *ngFor="let random of newRandomRecipe">
-            <h4>Instructions</h4>
-            <span>
-              {{random.strInstructions}}
-            </span>
-          </div>
-        </div>
-        <div class="recipe_area_video" *ngFor="let random of newRandomRecipe">
-          <div class="recipe_area_video_watch" *ngIf="random.strYoutube.length > 0">
-            <span>
-              Need more help? Watch video
-            </span>
-          </div>
-          <div class="recipe_area_video_youtube" *ngIf="random.strYoutube.length > 0">
-            <iframe width="250" height="250" [src]='safeURL' frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
 </div>
