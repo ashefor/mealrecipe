@@ -3,9 +3,9 @@
     <mat-sidenav #sidenav class="sidenav" [fixedInViewport]="fixedInViewport" [fixedTopGap]="fixedTopGap"
       [fixedBottomGap]="fixedBottomGap">
       <mat-nav-list role="list">
-        <mat-list-item role="navigation"><a routerLink="">Rad-Recipe</a></mat-list-item>
-        <mat-list-item role="navigation"><a routerLink="/favorites">Favorites</a></mat-list-item>
-        <mat-list-item role="navigation"><a routerLink="/random">Random</a></mat-list-item>
+        <mat-list-item routerLinkActive="activeclass" [routerLinkActiveOptions]="{exact: true}" role="navigation"><a routerLink="/">Rad-Recipe</a></mat-list-item>
+        <mat-list-item routerLinkActive="activeclass" role="navigation"><a routerLink="/favorites">Favorites</a></mat-list-item>
+        <mat-list-item routerLinkActive="activeclass" role="navigation"><a routerLink="/random">Random</a></mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -26,8 +26,8 @@
             </div>
             <div class="nav_menulinks">
               <ul class="nav_menulinks_links">
-                <li><a routerLink="/favorites">favorites</a></li>
-                <li>
+                <li routerLinkActive="active"><a routerLink="/favorites">favorites</a></li>
+                <li routerLinkActive="active">
                   <a routerLink="/random">
                     random recipe
                   </a>

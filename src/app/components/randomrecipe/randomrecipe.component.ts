@@ -20,7 +20,7 @@ export class RandomrecipeComponent implements OnInit {
   mealID;
   getIngredients: any;
   public safeURL: SafeResourceUrl;
-  showLoader = true;
+  showLoader = false;
   public radLink: string;
   addTo = true;
   removeFrom = false;
@@ -45,9 +45,9 @@ export class RandomrecipeComponent implements OnInit {
       this.addTo = false
       this.removeFrom = true
     }
-    if(this.newRandomRecipe.length > 0){
-      this.showLoader = false;
-    }
+    // if(this.newRandomRecipe.length > 0){
+    //   this.showLoader = false;
+    // }
   }
 
   getRandomRecipe() {

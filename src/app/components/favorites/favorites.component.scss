@@ -1,6 +1,15 @@
 a:hover{
     cursor: pointer;
 }
+.active{
+    border: 2px solid black;
+}
+.activeclass{
+    background: #7c7c7c;
+}
+.active{
+    border: 2px solid black;
+}
 .nav_menu{
     display: flex;
     z-index: 2;

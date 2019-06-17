@@ -8,6 +8,12 @@
     height: 600px;
     opacity: 0.95;
 }
+.active{
+    border: 2px solid black;
+}
+.activeclass{
+    background: #7c7c7c;
+}
 .nav_menu{
     display: flex;
     z-index: 2;
