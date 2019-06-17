@@ -1,8 +1,10 @@
 # Radrecipe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+	
 This project was made possible by [TheMealdDB](https://www.themealdb.com/api.php).
-Once you clone, run npm install and you're good to go
+
+Once you clone, run `npm install` and you're good to go
 
 ## Development server
 
