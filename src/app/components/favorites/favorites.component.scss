@@ -3,6 +3,11 @@ a:hover{
 }
 .nav_menu{
     display: flex;
+    z-index: 2;
+}
+mat-sidenav-container{
+    background: transparent;
+    z-index: unset;
 }
 .nav_menu_search{
     margin: auto;
@@ -309,7 +314,7 @@ footer{
     }
     .sidenav{
         width: 75%;
-        z-index: 999;
+        z-index: 3;
     }
     .favorite_area_details{
         display: block
